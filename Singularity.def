@@ -32,8 +32,6 @@ apt-get --yes install xserver-xorg-video-dummy \
 && rm -rf /var/lib/apt/lists/*
 
 # Update base
-# this is needed to be able to install mss versions > 1.2.1
-conda config --add channels defaults &&\
 conda update -n base -c defaults conda
 
 # create some desktop user directories

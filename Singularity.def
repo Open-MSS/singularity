@@ -15,7 +15,7 @@ MAINTAINER Reimar Bauer <rb.proj@gmail.com>
 # singularity build -f mss.sif Singularity.def
 # singularity shell mss.sif
 #
-# Singularity > mss # starts the ui
+# Singularity > msui # starts the ui
 # Singularity > mswms_demodata --seed  # creates in your $HOME a mss/ folder with testdata
 # Singularity > export PYTHONPATH=$HOME/mss; mswms # starts the development server 
 # Singularity > mscolab db --init; mscolab start # starts the mscolab server
@@ -24,17 +24,12 @@ MAINTAINER Reimar Bauer <rb.proj@gmail.com>
 
 
 
-# get keyboard working for mss gui
+# get keyboard working for msui
 apt-get --yes update && DEBIAN_FRONTEND=noninteractive \
 apt-get --yes install xserver-xorg-video-dummy \
 && apt-get --yes upgrade \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
-
-# Update base
-# this is needed to be able to install mss versions > 1.2.1
-conda config --add channels defaults &&\
-conda update -n base -c defaults conda
 
 # create some desktop user directories
 # if there is no data attached e.g. demodata /srv/mss is the preferred dir
@@ -45,4 +40,4 @@ mkdir -p /root/.local/share/applications/ \
 # Install Mission Support System Software
 # xorg-libxrender installs X11 packages needed by QT
 mamba create -n mssenv mss xorg-libxrender -y
-PATH=/opt/conda/envs/mssenv/bin:$PATH
+export PATH=/opt/conda/envs/mssenv/bin:$PATH

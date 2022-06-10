@@ -31,9 +31,6 @@ apt-get --yes install xserver-xorg-video-dummy \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
-# Update base
-conda update -n base -c defaults conda
-
 # create some desktop user directories
 # if there is no data attached e.g. demodata /srv/mss is the preferred dir
 mkdir -p /root/.local/share/applications/ \
@@ -43,4 +40,4 @@ mkdir -p /root/.local/share/applications/ \
 # Install Mission Support System Software
 # xorg-libxrender installs X11 packages needed by QT
 mamba create -n mssenv mss xorg-libxrender -y
-PATH=/opt/conda/envs/mssenv/bin:$PATH
+export PATH=/opt/conda/envs/mssenv/bin:$PATH

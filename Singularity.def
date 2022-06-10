@@ -15,7 +15,7 @@ MAINTAINER Reimar Bauer <rb.proj@gmail.com>
 # singularity build -f mss.sif Singularity.def
 # singularity shell mss.sif
 #
-# Singularity > mss # starts the ui
+# Singularity > msui # starts the ui
 # Singularity > mswms_demodata --seed  # creates in your $HOME a mss/ folder with testdata
 # Singularity > export PYTHONPATH=$HOME/mss; mswms # starts the development server 
 # Singularity > mscolab db --init; mscolab start # starts the mscolab server
@@ -24,7 +24,7 @@ MAINTAINER Reimar Bauer <rb.proj@gmail.com>
 
 
 
-# get keyboard working for mss gui
+# get keyboard working for msui
 apt-get --yes update && DEBIAN_FRONTEND=noninteractive \
 apt-get --yes install xserver-xorg-video-dummy \
 && apt-get --yes upgrade \
